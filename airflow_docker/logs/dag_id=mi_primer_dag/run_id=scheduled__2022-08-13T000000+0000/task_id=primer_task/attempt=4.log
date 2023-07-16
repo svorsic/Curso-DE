@@ -1,0 +1,34 @@
+[2023-07-16 18:35:57,383] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: mi_primer_dag.primer_task scheduled__2022-08-13T00:00:00+00:00 [queued]>
+[2023-07-16 18:35:57,505] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: mi_primer_dag.primer_task scheduled__2022-08-13T00:00:00+00:00 [queued]>
+[2023-07-16 18:35:57,517] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-16 18:35:57,520] {taskinstance.py:1377} INFO - Starting attempt 4 of 6
+[2023-07-16 18:35:57,520] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-16 18:35:57,643] {taskinstance.py:1397} INFO - Executing <Task(BashOperator): primer_task> on 2022-08-13 00:00:00+00:00
+[2023-07-16 18:35:57,657] {standard_task_runner.py:52} INFO - Started process 377 to run task
+[2023-07-16 18:35:57,693] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'mi_primer_dag', 'primer_task', 'scheduled__2022-08-13T00:00:00+00:00', '--job-id', '1114', '--raw', '--subdir', 'DAGS_FOLDER/primer_dag.py', '--cfg-path', '/tmp/tmp4890tdq4', '--error-file', '/tmp/tmp9ir_62s4']
+[2023-07-16 18:35:57,703] {standard_task_runner.py:80} INFO - Job 1114: Subtask primer_task
+[2023-07-16 18:35:58,225] {task_command.py:371} INFO - Running <TaskInstance: mi_primer_dag.primer_task scheduled__2022-08-13T00:00:00+00:00 [running]> on host fbcee05e3d0f
+[2023-07-16 18:35:59,048] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=DavidBU
+AIRFLOW_CTX_DAG_ID=mi_primer_dag
+AIRFLOW_CTX_TASK_ID=primer_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-13T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-13T00:00:00+00:00
+[2023-07-16 18:35:59,054] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-07-16 18:35:59,062] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'que carajos mundo, esta es nuestra primera tarea usando bash operator!']
+[2023-07-16 18:35:59,254] {subprocess.py:85} INFO - Output:
+[2023-07-16 18:35:59,269] {subprocess.py:92} INFO - bash: line 1: que: command not found
+[2023-07-16 18:35:59,271] {subprocess.py:96} INFO - Command exited with return code 127
+[2023-07-16 18:35:59,601] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 195, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2023-07-16 18:35:59,943] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=mi_primer_dag, task_id=primer_task, execution_date=20220813T000000, start_date=20230716T183557, end_date=20230716T183559
+[2023-07-16 18:36:00,210] {standard_task_runner.py:97} ERROR - Failed to execute job 1114 for task primer_task (Bash command failed. The command returned a non-zero exit code 127.; 377)
+[2023-07-16 18:36:00,486] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-07-16 18:36:00,794] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
